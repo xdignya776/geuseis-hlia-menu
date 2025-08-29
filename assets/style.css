@@ -131,9 +131,9 @@ a:hover {
 
 /* ordered numbering: use a single global counter across the page */
 .wrap { counter-reset: dish-counter; }
-.menu-list { padding-left:1.2rem; }
+.menu-list { padding-left:3rem; }
 .menu-list li { list-style:none; position:relative; counter-increment: dish-counter; }
-.menu-list li::before { content: counter(dish-counter) ". "; position:absolute; left:-1.2rem; color:#555; }
+.menu-list li::before { content: counter(dish-counter) ". "; position:absolute; left:0; color:#555; width:2.4rem; text-align:right; padding-right:0.6rem; }
 .menu-item { display:grid; grid-template-columns: 1fr auto; gap:0.6rem; align-items:center; }
 .menu-item .name { font-weight:600; }
 .menu-item .price { white-space:nowrap; font-weight:700; }
@@ -150,6 +150,12 @@ a:hover {
   border-bottom: 1px dotted rgba(0,0,0,0.15);
   z-index: 1;
 }
+.wrap { scroll-padding-top: 72px; }
+.menu-section { scroll-margin-top: 84px; }
+
+/* Home link container (HOME sits outside the scrollable nav) */
+.topnav-row { display:flex; align-items:center; gap:0.8rem; }
+.home-link { flex: 0 0 auto; background:transparent; color:#0077cc; padding:0.4rem 0.6rem; border-radius:6px; font-weight:600; }
 .menu-item .name, .menu-item .price { background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0)); }
 .menu-item .desc { grid-column:1/-1; color:#555; font-size:0.95rem; margin-top:0.3rem; }
 
