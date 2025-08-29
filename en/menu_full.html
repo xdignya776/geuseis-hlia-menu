@@ -7,24 +7,21 @@
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+  <div class="site-header">
+    <div class="topnav-row">
+      <div class="home-dropdown">
+        <button id="home-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-icon">🌐</span> LANGUAGES <span class="chev">▾</span></button>
+        <div id="home-menu" class="home-menu" role="menu" aria-label="Language selection">
+          <a class="flag-link" role="menuitem" href="../en/menu_full.html" aria-current="true"><img class="flag" src="../assets/flags/gb.svg" alt="English"> English</a>
+          <a class="flag-link" role="menuitem" href="../gr/menu_full.html"><img class="flag" src="../assets/flags/gr.svg" alt="Ελληνικά"> Ελληνικά</a>
+          <a class="flag-link" role="menuitem" href="../tr/menu_full.html"><img class="flag" src="../assets/flags/tr.svg" alt="Türkçe"> Türkçe</a>
+          <a class="flag-link" role="menuitem" href="../bg/menu_full.html"><img class="flag" src="../assets/flags/bg.svg" alt="Български"> Български</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="wrap">
     <header>
-      <div class="topnav-row" style="display:flex; align-items:center; gap:0.8rem;">
-        <a class="home-link" href="../index.html">HOME</a>
-        <nav class="topnav scrollable" aria-label="Menu categories">
-          <a href="#appetizers">Appetizers</a>
-          <a href="#more">More</a>
-          <a href="#soups">Soups</a>
-          <a href="#salads">Salads</a>
-          <a href="#platters">Platters</a>
-          <a href="#specials">Specials</a>
-          <a href="#sea">From the Sea</a>
-          <a href="#sides">Side Dishes</a>
-          <a href="#beverages">Beverages</a>
-          <a href="#coffee">Coffee</a>
-          <a href="#desserts">Desserts</a>
-        </nav>
-      </div>
       <h1>Menu</h1>
     </header>
 
@@ -234,6 +231,7 @@
     </section>
 
   </div>
+  <script src="../assets/home-dropdown.js"></script>
   <script src="../assets/scroll-nav.js"></script>
   <script src="../assets/back-to-top.js"></script>
 </body>

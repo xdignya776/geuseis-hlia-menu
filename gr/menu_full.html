@@ -6,26 +6,23 @@
   <title>Μενού — Πλήρες</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
-    <header>
-      <div class="topnav-row" style="display:flex; align-items:center; gap:0.8rem;">
-        <a class="home-link" href="../index.html">HOME</a>
-        <nav class="topnav scrollable" aria-label="Κατηγορίες μενού">
-          <a href="#appetizers">Ορεκτικά</a>
-          <a href="#more">Περισσότερα</a>
-          <a href="#soups">Σούπες</a>
-          <a href="#salads">Σαλάτες</a>
-          <a href="#platters">Πιατέλες</a>
-          <a href="#specials">Ειδικές</a>
-          <a href="#sea">Απ' τη θάλασσα</a>
-          <a href="#sides">Συνοδευτικά</a>
-          <a href="#beverages">Ποτά</a>
-          <a href="#coffee">Καφές</a>
-          <a href="#desserts">Επιδόρπια</a>
-        </nav>
+<body>
+  <div class="site-header">
+    <div class="topnav-row">
+      <div class="home-dropdown">
+        <button id="home-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-icon">🌐</span> ΕΠΙΛΟΓΕΣ <span class="chev">▾</span></button>
+        <div id="home-menu" class="home-menu" role="menu" aria-label="Language selection">
+          <a class="flag-link" role="menuitem" href="../en/menu_full.html"><img class="flag" src="../assets/flags/gb.svg" alt="English"> English</a>
+          <a class="flag-link" role="menuitem" href="../gr/menu_full.html" aria-current="true"><img class="flag" src="../assets/flags/gr.svg" alt="Ελληνικά"> Ελληνικά</a>
+          <a class="flag-link" role="menuitem" href="../tr/menu_full.html"><img class="flag" src="../assets/flags/tr.svg" alt="Türkçe"> Türkçe</a>
+          <a class="flag-link" role="menuitem" href="../bg/menu_full.html"><img class="flag" src="../assets/flags/bg.svg" alt="Български"> Български</a>
+        </div>
       </div>
-      <h1>Μενού</h1>
-    </header>
-      <h1>Μενού</h1>
+    </div>
+  </div>
+  <div class="wrap">
+    <header>
+      <h1>Menu</h1>
     </header>
 
     <section id="appetizers" class="menu-section">
@@ -187,6 +184,7 @@
       </ol>
     </section>
   </div>
+  <script src="../assets/home-dropdown.js"></script>
   <script src="../assets/scroll-nav.js"></script>
   <script src="../assets/back-to-top.js"></script>
 </body>
