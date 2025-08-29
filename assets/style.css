@@ -80,7 +80,7 @@ a:hover {
   padding: 1.2rem;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
   text-align: left;
 }
 
@@ -163,10 +163,20 @@ a:hover {
 
 /* small-screen adjustments */
 @media (max-width:599px) {
-  .wrap { padding:1rem; }
-  a { display:block; }
-  .menu-item { grid-template-columns: 1fr auto; }
+  .wrap { padding:0.6rem; margin:0.6rem; }
+  body { padding: 1rem 0.4rem; }
+  a { display:block; font-size:0.95rem; padding:0.6rem; }
+  /* reduce number column on small screens */
+  .menu-list li { grid-template-columns: 1.8rem 1fr; gap:0.4rem; }
+  .menu-list li::before { padding-right:0.4rem; font-size:0.95rem; }
+  .menu-item { grid-template-columns: 1fr auto; gap:0.4rem; }
+  .menu-item .name { font-size:0.98rem; }
+  .menu-item .price { font-size:0.95rem; }
 }
+
+/* Performance hints: reduce repaint cost and heavy shadows */
+.wrap, .menu-list li { contain: layout paint; will-change: contents; }
+.topnav.scrollable { will-change: transform; }
 
 /* print friendly */
 @media print {
