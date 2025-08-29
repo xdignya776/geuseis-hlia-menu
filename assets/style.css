@@ -75,7 +75,7 @@ a:hover {
 
 /* Page layout and menu grid */
 .wrap {
-  max-width: 920px;
+  max-width: 1100px;
   margin: 1.2rem auto;
   padding: 1.2rem;
   background: #fff;
@@ -131,10 +131,11 @@ a:hover {
 
 /* ordered numbering: use a single global counter across the page */
 .wrap { counter-reset: dish-counter; }
-.menu-list { padding-left:3rem; }
-.menu-list li { list-style:none; position:relative; counter-increment: dish-counter; }
-.menu-list li::before { content: counter(dish-counter) ". "; position:absolute; left:0; color:#555; width:2.4rem; text-align:right; padding-right:0.6rem; }
-.menu-item { display:grid; grid-template-columns: 1fr auto; gap:0.6rem; align-items:center; }
+.menu-list { padding-left:0; }
+/* make each list row a 2-column grid: number column + content column */
+.menu-list li { list-style:none; counter-increment: dish-counter; display:grid; grid-template-columns: 2.4rem 1fr; gap:0.6rem; align-items:start; padding:0.45rem 0; border-bottom:1px solid #f0f0f0; }
+.menu-list li::before { content: counter(dish-counter) "."; grid-column: 1; color:#555; text-align:right; padding-right:0.6rem; }
+.menu-item { grid-column: 2; display:grid; grid-template-columns: 1fr auto; gap:0.6rem; align-items:center; }
 .menu-item .name { font-weight:600; }
 .menu-item .price { white-space:nowrap; font-weight:700; }
 .menu-item { position: relative; }
