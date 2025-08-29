@@ -158,7 +158,8 @@ a:hover {
 .topnav-row { display:flex; align-items:center; gap:0.8rem; }
 .home-link { flex: 0 0 auto; background:transparent; color:#0077cc; padding:0.4rem 0.6rem; border-radius:6px; font-weight:600; }
 .menu-item .name, .menu-item .price { background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0)); }
-.menu-item .desc { grid-column:1/-1; color:#555; font-size:0.95rem; margin-top:0.3rem; }
+/* ensure description sits in the second (content) column of the li grid */
+.menu-list li > .desc { grid-column: 2; color:#555; font-size:0.95rem; margin-top:0.3rem; }
 
 /* small-screen adjustments */
 @media (max-width:599px) {
