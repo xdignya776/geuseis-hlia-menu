@@ -1,0 +1,7 @@
+<!-- Bulgarian flag (higher fidelity) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet">
+	<rect width="900" height="600" fill="#fff"/>
+	<rect width="900" height="200" y="0" fill="#00966E"/>
+	<rect width="900" height="200" y="200" fill="#fff"/>
+	<rect width="900" height="200" y="400" fill="#CE2B37"/>
+</svg>

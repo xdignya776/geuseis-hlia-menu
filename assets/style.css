@@ -5,6 +5,34 @@ body {
   margin: 0;
   padding: 2rem;
 }
+html { scroll-behavior: smooth; }
+/* Back-to-top FAB */
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff7a18, #ff3d00);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  display: inline-grid;
+  place-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 200ms ease, transform 220ms cubic-bezier(.2,.9,.3,1);
+  z-index: 1200;
+}
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.back-to-top:focus { outline: 3px solid rgba(255,255,255,0.18); }
+.back-to-top svg { width: 18px; height: 18px; }
 h1 {
   margin-bottom: 2rem;
 }
@@ -21,7 +49,7 @@ a {
   color: white;
   padding: 1rem;
   border-radius: 8px;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   transition: background 0.2s ease;
 }
 a:hover {
@@ -40,3 +68,100 @@ a:hover {
 
 .lang-buttons a { display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; }
 .vis { position:absolute; left:-9999px; }
+
+.flag { width:1.6rem; height:auto; display:inline-block; }
+.lang-buttons a { padding-left:0.8rem; padding-right:0.8rem; }
+.lang-buttons { padding-top:0.2rem; }
+
+/* Page layout and menu grid */
+.wrap {
+  max-width: 920px;
+  margin: 1.2rem auto;
+  padding: 1.2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  text-align: left;
+}
+
+.topnav { display:flex; gap:1rem; align-items:center; margin-bottom:0.6rem; }
+.topnav a { background:transparent; color:#0077cc; padding:0.2rem 0.6rem; border-radius:6px; }
+.access { margin-left:auto; color:#666; }
+
+/* Scrollable horizontal nav inside the white .wrap container */
+.topnav.scrollable { display:flex; gap:0.6rem; align-items:center; margin-bottom:0.6rem; padding:0.4rem 0; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.topnav.scrollable a { flex:0 0 auto; padding:0.4rem 0.85rem; white-space:nowrap; background:transparent; color:#0077cc; border-radius:6px; }
+.topnav.scrollable::-webkit-scrollbar { height:8px; }
+.topnav.scrollable::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius:4px; }
+.topnav.scrollable { scrollbar-width: thin; }
+.topnav.scrollable { position:sticky; top:0; background:#fff; z-index:30; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+.topnav.scrollable::before,
+.topnav.scrollable::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 54px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+}
+.topnav.scrollable::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+  color: rgba(0,118,204,0.9);
+}
+.topnav.scrollable::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+  color: rgba(0,118,204,0.9);
+}
+.topnav.scrollable::before { content: "\2039"; font-size: 1.25rem; font-weight:700; }
+.topnav.scrollable::after { content: "\203A"; font-size: 1.25rem; font-weight:700; }
+
+/* When nav is not horizontally scrollable, hide the chevrons/fades using a simple CSS trick: if all children fit, the scroll width equals client width and the chevrons remain subtle. */
+.topnav.scrollable.no-overflow::before, .topnav.scrollable.no-overflow::after { opacity: 0; }
+
+.menu-section { margin-top:1.2rem; }
+.menu-section h2 { margin-bottom:0.6rem; color:#2f4b7c; }
+.menu-list { padding:0; margin:0; list-style:none; }
+.menu-list li { padding:0.45rem 0; border-bottom:1px solid #f0f0f0; }
+
+/* ordered numbering: use a single global counter across the page */
+.wrap { counter-reset: dish-counter; }
+.menu-list { padding-left:1.2rem; }
+.menu-list li { list-style:none; position:relative; counter-increment: dish-counter; }
+.menu-list li::before { content: counter(dish-counter) ". "; position:absolute; left:-1.2rem; color:#555; }
+.menu-item { display:grid; grid-template-columns: 1fr auto; gap:0.6rem; align-items:center; }
+.menu-item .name { font-weight:600; }
+.menu-item .price { white-space:nowrap; font-weight:700; }
+.menu-item { position: relative; }
+.menu-item .name { display: inline-block; padding-right: 1rem; }
+.menu-item .price { position: relative; z-index: 2; }
+.menu-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-bottom: 1px dotted rgba(0,0,0,0.15);
+  z-index: 1;
+}
+.menu-item .name, .menu-item .price { background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0)); }
+.menu-item .desc { grid-column:1/-1; color:#555; font-size:0.95rem; margin-top:0.3rem; }
+
+/* small-screen adjustments */
+@media (max-width:599px) {
+  .wrap { padding:1rem; }
+  a { display:block; }
+  .menu-item { grid-template-columns: 1fr auto; }
+}
+
+/* print friendly */
+@media print {
+  body { background: #fff; padding:0; }
+  .wrap { box-shadow:none; border-radius:0; }
+}
